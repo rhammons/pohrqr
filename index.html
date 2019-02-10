@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Generate your American Cancer Society Pan Ohio Hope Ride QR Code</title>
+  <meta name="description" content="Fundraising tool developed to let Pan Ohio Hope Riders generate fliers with QR Codes linking to their Donation Pages on www.pohr.org.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/qrcode.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <header>
+    <img src="img/acs-logo.svg" alt="American Cancer Society">
+  </header>
+  <div class="container center">
+      <img src="img/pohr.jpg" alt="event photo" />
+    <form>
+      <h1><strong>Support <span class="editable" contenteditable="true">Your Name Here</span></strong>in the 328 mile
+        Pan Ohio Hope
+        ride from Cleveland to Cincinnati!</h1>
+      <h2 class="event-date">July 25-28, 2019</h2>
+      <h3>Open your phone's camera and scan the QR code to go directly to my donation page</h3>
+      <label for="exampleEmailInput">Enter your Donation URL</label>
+      <input class="url-input" value="http://main.acsevents.org/goto/" type="url"
+        placeholder="Your personalized URL here" id="text">
+      <div id="qrcode"></div>
+
+      <img src="img/balloons.jpg" alt="event photo" />
+      <p class="sub-text">Or visit <span class="or-url">...</span></p>
+      <button class="print" id="print-button" type="button"><i class="fas fa-print"></i> Print Flyer</button>
+    </form>
+  </div>
+</body>
+<script>
+  // This is sloppy, and realistically should be cleaned up.
+  var qrcode = new QRCode("qrcode");
+
+  //Draw the QR Code
+  function makeCode() {
+    var elText = document.getElementById("text");
+
+    if (!elText.value) {
+      alert("Input a text");
+      elText.focus();
+      return;
+    }
+
+    qrcode.makeCode(elText.value);
+  }
+
+  makeCode();
+
+  //Monitor the text input, redraw the QR Code and populate the URL as a back-up
+  $("#text").on("keyup", function () {
+    setTimeout(function () { $('.or-url').text($('#text').val()); }, 150);
+    makeCode();
+  });
+
+  //Handle the print button action
+  $('#print-button').on('click', function () {
+    window.print();
+  });
+
+  //Clear the editable text area when clicked and focused.
+  $('.editable').on('click', function(){
+    $(this).text('');
+  });
+</script>
+
+</html>

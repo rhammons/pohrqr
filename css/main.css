@@ -1,0 +1,378 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    box-sizing: border-box;
+    }
+    *, *:before, *:after {
+    box-sizing: inherit;
+    }
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: #595959;
+    background: #f9f9f9;
+}
+
+.background-image {
+    display: none;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right: 0;
+    top: 0;
+    opacity: .25;
+}
+header {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+    padding: 1em;
+    width: 33.3%;
+    max-width: 150px;
+    height: auto;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto 2em;
+    background: white;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 0 100px rgba(0,0,0,.25);
+    font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.container img {
+    display: block;
+    margin: 0;
+    width:100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    margin: 0 0 1em;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 1.4em;
+    text-transform: uppercase;
+    color: white;
+    background: #041e42;
+    padding: 1em;
+    letter-spacing: .07em;
+}
+h2 {
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 700;
+}
+h3 {    
+    background: #333;
+    color: white;
+    padding: 1em;
+}
+.sub-text {
+    background: #333;
+    color: white;
+    margin: 0;
+    padding: 1em;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.center {
+    text-align: center;
+  }
+ h1 strong {
+     font-weight: 400;
+     display: block;
+ }
+  .editable{
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 1em;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,.75);
+    white-space: nowrap;
+  }
+
+  .editable:focus {
+    outline: none;
+  }
+
+  .url-input {
+      display: block;
+      padding: .5em 1em;
+      margin: 0 auto 1em;
+      font-size: 1.1em;
+      color: #777;
+      width: 95%;
+      text-align: center;
+      border: 2px solid #efefef;
+      border-radius: 12px;
+  }
+
+  #qrcode {
+    display: block;
+    margin: 0 auto 1em;
+    padding: 1em;
+    width: 80%;
+    max-width: 350px;
+    border: 6px solid #041e42;
+    background: white;
+  }
+
+  #qrcode img,
+  #qrcode canvas {
+      display: block;
+      margin: 0 auto;
+  }
+
+  .or-url {
+      display: block;
+      word-break: break-word;
+      text-transform: none;
+  }
+
+  #print-button {
+    margin: 1em auto;
+    padding: 1em;
+    background-color: #041e42;
+    border: 0;
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    width: 80%;
+    max-width: 400px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    cursor: pointer;
+  }
+
+  /**
+ * = PRINT styles
+ *
+ * - Imported in global.css (http://www.phpied.com/delay-loading-your-print-css/)
+ * - Taken straight from: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L197
+ *
+ * @TODO:
+ * - Add to this?
+ *
+ * ========================================================================= */
+
+/* stylelint-disable declaration-no-important  */
+
+@media print {
+	*,
+	*:before,
+	*:after,
+	*:first-letter,
+	p:first-line,
+	div:first-line,
+	blockquote:first-line,
+	li:first-line {
+		background: transparent !important;
+		color: #000 !important; /* Black prints faster:
+								   http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited { text-decoration: underline; }
+
+	a[href]:after { content: " (" attr(href) ")"; }
+
+	abbr[title]:after { content: " (" attr(title) ")"; }
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after { content: ""; }
+
+	pre { white-space: pre-wrap !important; }
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+
+	thead { display: table-header-group; }
+
+	tr,
+	img { page-break-inside: avoid; }
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 { page-break-after: avoid; }
+
+	/**
+	 * HIDE certain elements completely
+	 */
+	.site-navigation {
+		display: none;
+	}
+
+	/**
+	 * Or go Nuclear and use this:
+	 * from: https://medium.com/@matuzo/i-totally-forgot-about-print-style-sheets-f1e6604cfd6#.9de6r4yhr
+	 *
+	 *   body > *:not(main) { display: none; }
+	 *
+     */
+
+    header img {
+        max-width: 100;
+    } 
+  .container {
+      margin: 0 auto;
+      width: 600px;
+  }   
+
+  .container img {
+  }
+
+  h1, h2, h3 {
+      margin: 0 0 .25em;
+      padding: .25em 1em;
+  }
+
+  h3 {
+      margin: 0 auto;
+      width: 70%;
+  }
+
+  .editable {
+      border: 0;
+      padding: 0;
+      color: #595959;
+  }
+
+  #qrcode {
+    display: block;
+    margin: 0 auto 1em;
+    max-width: 150px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  #qrcode canvas {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+  }
+
+
+  label, input, .url-input, #print-button, button {
+      display: none;
+  }
+}
+
+/* stylelint-enable */
